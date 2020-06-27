@@ -11,13 +11,13 @@ switch(url){
     case "/masvotadas":
         index.masVotadas(res);
         break;
-    case "sucursales":
-        index.sucursales();
+    case "/sucursales":
+        index.sucursales(res);
         break;
-    case "preguntas":
+    case "/preguntas":
         index.preguntas();
         break
-    case "contacto":
+    case "/contacto":
         index.contacto();
         break;
     default:

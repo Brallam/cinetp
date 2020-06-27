@@ -1,7 +1,8 @@
 const homePage= require("./homePage");
 const  listarPelis  = require("./homePage");
 const cartelera=require("./cartelera.js")
-const masVotadas=require("./masVotadas");
+const masVotadas=require("./masVotadas.js");
+const sucursales=require("./sucursales.js")
 
 let index = {
     homePage:function(res){
@@ -55,9 +56,19 @@ let index = {
         res.end()
         },
         
-    sucursales:function(){
-
-    },
+    sucursales:function(res){
+        res.write(""+sucursales.titulo)
+        res.write(""+sucursales.listasalas().length+"\n")
+        let salas=sucursales.listasalas()
+        let i=0
+        salas.forEach(function(m){
+        i++
+        res.write("Sala "+i+"--"+m.name+"\n")
+        res.write("Ubicacion: "+m.address+"\n")
+        res.write("Decripcion:"+m.description+"\n")
+        res.write("-------------------------------------------------------------------------------------------------------------\n")} )
+        res.end() }
+        ,
     contacto:function(){
 
     },
