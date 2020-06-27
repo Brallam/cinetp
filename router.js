@@ -15,10 +15,10 @@ switch(url){
         index.sucursales(res);
         break;
     case "/preguntas":
-        index.preguntas();
+        index.preguntas(res);
         break
     case "/contacto":
-        index.contacto();
+        index.contacto(res);
         break;
     default:
 }

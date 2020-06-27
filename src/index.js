@@ -2,7 +2,9 @@ const homePage= require("./homePage");
 const  listarPelis  = require("./homePage");
 const cartelera=require("./cartelera.js")
 const masVotadas=require("./masVotadas.js");
-const sucursales=require("./sucursales.js")
+const sucursales=require("./sucursales.js");
+const contacto = require("./contacto..js");
+const faq=require("./preguntas")
 
 let index = {
     homePage:function(res){
@@ -43,6 +45,7 @@ let index = {
     masVotadas:function(res){
         res.write(""+masVotadas.titulo+"\n")
         res.write("Cantidad:"+masVotadas.listado().length+"\n")
+        res.write("Promedio: "+masVotadas.promedio()+" \n")
        let lista=masVotadas.listado()
        let i=0
        lista.forEach(function(m){
@@ -69,11 +72,22 @@ let index = {
         res.write("-------------------------------------------------------------------------------------------------------------\n")} )
         res.end() }
         ,
-    contacto:function(){
-
+    contacto:function(res){
+        res.write(""+contacto.titulo+"\n\n")
+        res.write(""+contacto.contenido)
+        res.end()
     },
-    preguntas:function(){
-
+    preguntas:function(res){
+        res.write(""+faq.titulo+":\nTotal de preguntas: "+faq.listafaq().length+"\n")
+        let i=0
+        let faqs=faq.listafaq()
+        faqs.forEach(function(m){
+        i++
+        res.write(""+i+":"+m.faq_title+"\n")
+        res.write(""+m.faq_answer+"\n")
+        res.write("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+        })
+        res.end()
     }
 } 
 module.exports=index

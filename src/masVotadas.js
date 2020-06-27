@@ -13,6 +13,13 @@ let votadas={
     })
     return voto
 
-    }
-}
+    },
+    promedio:function(){
+        let pelis = this.listado();
+        let promedio=0;
+        pelis.forEach(function(dat){
+            promedio += dat.vote_average
+        })
+        return Math.round(promedio / pelis.length)
+    }}
 module.exports=votadas
