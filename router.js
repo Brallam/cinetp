@@ -8,8 +8,8 @@ switch(url){
     case "/cartelera":
         index.cartelera(res);
         break;
-    case "masvotadas":
-        index.masVotadas();
+    case "/masvotadas":
+        index.masVotadas(res);
         break;
     case "sucursales":
         index.sucursales();
